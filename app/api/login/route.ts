@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
-import { adminUser } from "../../../lib/auth";
-
 
 export async function POST(req: Request) {
-  const body = await req.json();
+  const { email, password } = await req.json();
 
-  if (body.email === adminUser.email && body.password === adminUser.password) {
+  if (email === "admin@demo.com" && password === "admin123") {
     return NextResponse.json({ success: true });
   }
 
-  return NextResponse.json({ success: false }, { status: 401 });
+  return NextResponse.json(
+    { error: "Invalid credentials" },
+    { status: 401 }
+  );
 }
+
