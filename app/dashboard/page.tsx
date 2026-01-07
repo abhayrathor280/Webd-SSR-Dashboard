@@ -1,17 +1,18 @@
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
-import { connectDB } from "../../lib/db";
-import Product from "../../models/Product";
-import Chart from "../../components/Chart";
+import Product from "@/models/Product";
+import connectDB from "@/lib/db";
 
 export default async function Dashboard() {
   await connectDB();
-  const products = await (Product as any).find();
+  const products = await Product.find();
 
   return (
     <div>
-      <Chart data={products} />
+      Dashboard
     </div>
   );
 }
+
 
