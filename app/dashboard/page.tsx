@@ -1,19 +1,13 @@
 export const dynamic = "force-dynamic";
 
-import Product from "../../models/Product";
-import { connectDB } from "../../lib/db";
-
-export default async function Dashboard() {
-  await connectDB();
-
-  const products = await Product.find();
-
+export default function Dashboard() {
   return (
-    <div>
-      Dashboard Loaded ✅  
-      Products count: {products.length}
+    <div style={{ padding: "20px" }}>
+      <h1>Dashboard</h1>
+      <p>Project deployed successfully.</p>
     </div>
   );
 }
+
 
 
