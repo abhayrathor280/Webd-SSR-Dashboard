@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div style={{ padding: "40px", fontFamily: "sans-serif" }}>
+    <div style={{ padding: "40px", fontFamily: "Arial" }}>
       <h1>SSR Admin Dashboard</h1>
       <p>Project deployed successfully.</p>
 
@@ -8,4 +8,5 @@ export default function Home() {
     </div>
   );
 }
+
 
