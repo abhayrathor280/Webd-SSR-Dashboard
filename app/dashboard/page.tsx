@@ -1,7 +1,8 @@
 import { connectDB } from "../../lib/db";
 import Product from "../../models/Product";
 
-import Chart from "@/components/Chart";
+import Chart from "../../components/Chart";
+
 
 export default async function Dashboard() {
   await connectDB();
