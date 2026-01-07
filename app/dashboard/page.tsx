@@ -1,85 +1,82 @@
-export default function Dashboard() {
-  return (
-    <div style={{
-      padding: "40px",
-      fontFamily: "Arial",
-      background: "#f5f6fa",
-      minHeight: "100vh"
-    }}>
-      <h1 style={{ marginBottom: "20px" }}>Admin Dashboard</h1>
+export const dynamic = "force-dynamic";
 
-      {/* Stats */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "20px",
-        marginBottom: "40px"
-      }}>
-        <Card title="Total Products" value="12" />
-        <Card title="Total Orders" value="5" />
-        <Card title="Total Users" value="3" />
+export default async function DashboardPage() {
+  // Dummy data (safe for submission)
+  const stats = [
+    { label: "Total Products", value: 12 },
+    { label: "Total Orders", value: 5 },
+    { label: "Total Users", value: 3 },
+  ];
+
+  const products = [
+    { name: "iPhone 15", price: "₹80,000", stock: 12 },
+    { name: "AirPods Pro", price: "₹18,000", stock: 30 },
+    { name: "MacBook Air", price: "₹1,15,000", stock: 6 },
+  ];
+
+  return (
+    <div style={{ padding: "30px", fontFamily: "Arial, sans-serif", background: "#f5f6fa" }}>
+      <h1 style={{ marginBottom: "20px" }}>🛒 Admin Dashboard</h1>
+
+      {/* Stats Cards */}
+      <div style={{ display: "flex", gap: "20px", marginBottom: "30px" }}>
+        {stats.map((item) => (
+          <div
+            key={item.label}
+            style={{
+              background: "white",
+              padding: "20px",
+              borderRadius: "8px",
+              width: "200px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+            }}
+          >
+            <h3 style={{ margin: 0 }}>{item.label}</h3>
+            <p style={{ fontSize: "24px", margin: "10px 0 0", fontWeight: "bold" }}>
+              {item.value}
+            </p>
+          </div>
+        ))}
       </div>
 
-      {/* Products table */}
-      <h2>Latest Products</h2>
-      <table style={{
-        width: "100%",
-        borderCollapse: "collapse",
-        background: "#fff"
-      }}>
-        <thead>
-          <tr style={{ background: "#eee" }}>
-            <th style={th}>Name</th>
-            <th style={th}>Price</th>
-            <th style={th}>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={td}>iPhone 15</td>
-            <td style={td}>₹80,000</td>
-            <td style={td}>12</td>
-          </tr>
-          <tr>
-            <td style={td}>AirPods</td>
-            <td style={td}>₹18,000</td>
-            <td style={td}>30</td>
-          </tr>
-          <tr>
-            <td style={td}>MacBook</td>
-            <td style={td}>₹1,40,000</td>
-            <td style={td}>5</td>
-          </tr>
-        </tbody>
-      </table>
+      {/* Products Table */}
+      <div
+        style={{
+          background: "white",
+          padding: "20px",
+          borderRadius: "8px",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+        }}
+      >
+        <h2 style={{ marginBottom: "15px" }}>📦 Products</h2>
+
+        <table width="100%" cellPadding={10} style={{ borderCollapse: "collapse" }}>
+          <thead style={{ background: "#f0f0f0" }}>
+            <tr>
+              <th align="left">Name</th>
+              <th align="left">Price</th>
+              <th align="left">Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((p) => (
+              <tr key={p.name} style={{ borderBottom: "1px solid #ddd" }}>
+                <td>{p.name}</td>
+                <td>{p.price}</td>
+                <td>{p.stock}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p style={{ marginTop: "20px", color: "green" }}>
+        ✅ Dashboard loaded successfully.
+      </p>
     </div>
   );
 }
 
-function Card({ title, value }: { title: string; value: string }) {
-  return (
-    <div style={{
-      background: "#fff",
-      padding: "20px",
-      borderRadius: "10px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
-    }}>
-      <h3 style={{ marginBottom: "10px" }}>{title}</h3>
-      <p style={{ fontSize: "24px", fontWeight: "bold" }}>{value}</p>
-    </div>
-  );
-}
-
-const th = {
-  padding: "12px",
-  borderBottom: "1px solid #ccc",
-  textAlign: "left"
-};
-
-const td = {
-  padding: "12px",
-  borderBottom: "1px solid #eee"
-};
 
 
 
