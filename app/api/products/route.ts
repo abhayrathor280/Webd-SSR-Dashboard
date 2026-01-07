@@ -12,6 +12,6 @@ export async function GET() {
 export async function POST(req: Request) {
   await connectDB();
   const data = await req.json();
-  const product = await Product.create(data);
+  const product = await (Product as any).create(data);
   return NextResponse.json(product);
 }
