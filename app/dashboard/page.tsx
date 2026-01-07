@@ -6,8 +6,7 @@ import Chart from "../../components/Chart";
 
 export default async function Dashboard() {
   await connectDB();
-  const products = await Product.find();
-
+  const products = await (Product as any).find();
   return (
     <div>
       <h1>Admin Dashboard</h1>
