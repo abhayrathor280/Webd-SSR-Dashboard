@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { adminUser } from "@/lib/auth";
+import { adminUser } from "../../../lib/auth";
+
 
 export async function POST(req: Request) {
   const body = await req.json();
