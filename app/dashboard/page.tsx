@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 export default function Dashboard() {
   return (
     <div style={{ padding: "40px", fontFamily: "Arial" }}>
@@ -14,7 +12,7 @@ export default function Dashboard() {
       </ul>
 
       <p style={{ marginTop: "20px", color: "green" }}>
-        ✅ Dashboard working (static mode for submission)
+        Dashboard loaded correctly.
       </p>
     </div>
   );
